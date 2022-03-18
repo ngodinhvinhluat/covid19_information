@@ -1,0 +1,22 @@
+
+  <div class="container-fluid" style="height: 35%; width: 100%; float: left;">
+    <app-total-infor></app-total-infor>
+  </div>
+  <div class="container-fluid" style="height: 35%; width: 50%; float: left;">
+    <app-country-case-chart (country)="onGetCountry($event)"
+    (dateTime)="onGetDatetime($event)"
+    (deaths)="onGetDeath($event)"
+    (confirmed)="onGetConfirmed($event)"
+    (recovered)="onGetRecovered($event)"
+    >
+    </app-country-case-chart>
+  </div>
+  <div class="container-fluid" style="height: 35%; width: 50%; float: right ;">
+    <app-world-pie-chart
+    [dateTime]="dateTime"
+    [country]="country"
+    [Deaths]="deaths"
+    [Confirmed]="confirmed"
+    [Recovered]="recovered"
+    ></app-world-pie-chart>
+  </div>
