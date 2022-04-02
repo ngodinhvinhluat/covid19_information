@@ -1,8 +1,8 @@
-
-  <div class="container-fluid" style="height: 35%; width: 100%; float: left;">
+<div class="wrapped">
+  <div class="container-fluid left" style=" width: 100%;  ">
     <app-total-infor></app-total-infor>
   </div>
-  <div class="container-fluid" style="height: 35%; width: 50%; float: left;">
+  <div class="container-fluid left">
     <app-country-case-chart (country)="onGetCountry($event)"
     (dateTime)="onGetDatetime($event)"
     (deaths)="onGetDeath($event)"
@@ -11,7 +11,8 @@
     >
     </app-country-case-chart>
   </div>
-  <div class="container-fluid" style="height: 35%; width: 50%; float: right ;">
+  <div class="container-fluid right" >
+    <div class="title">COVID-19 CIRCLE CHART</div>
     <app-world-pie-chart
     [dateTime]="dateTime"
     [country]="country"
@@ -20,3 +21,4 @@
     [Recovered]="recovered"
     ></app-world-pie-chart>
   </div>
+</div>

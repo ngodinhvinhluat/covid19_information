@@ -1,0 +1,22 @@
+.covid{
+  height: 40px;
+  margin-right: 10px;
+}
+span{
+  color:yellow;
+}
+.menu{
+  width: 100%;
+}
+ul>li{
+  display: flex;
+  text-decoration: none;
+  padding: 20px;
+  float: left;
+  transition: all .2s ease-in-out;
+}
+ul li a{
+  color: #fff;
+  font-size: 20px;
+}
+

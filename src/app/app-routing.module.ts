@@ -6,6 +6,7 @@ import {CountPieLineChartComponent} from '../app/count-pie-line-chart/count-pie-
 import {WorldPieChartComponent} from '../app/world-pie-chart/world-pie-chart.component'
 import {TotalInforComponent} from '../app/total-infor/total-infor.component'
 const routes: Routes = [
+  {path:'',component:CountPieLineChartComponent},
   {path:'infor',component:ListInforComponent},
   //{path:'detail',component:CountryCaseChartComponent},
   {path:'infor-wo',component:CountPieLineChartComponent},
