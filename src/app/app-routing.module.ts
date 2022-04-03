@@ -5,6 +5,8 @@ import {CountryCaseChartComponent} from '../app/country-case-chart/country-case-
 import {CountPieLineChartComponent} from '../app/count-pie-line-chart/count-pie-line-chart.component'
 import {WorldPieChartComponent} from '../app/world-pie-chart/world-pie-chart.component'
 import {TotalInforComponent} from '../app/total-infor/total-infor.component'
+import {TotalVieComponent} from '../app/total-vie/total-vie.component'
+
 const routes: Routes = [
   {path:'',component:CountPieLineChartComponent},
   {path:'infor',component:ListInforComponent},
@@ -12,6 +14,7 @@ const routes: Routes = [
   {path:'infor-wo',component:CountPieLineChartComponent},
   {path:'pie-world',component:WorldPieChartComponent},
   {path:'total-infor',component:TotalInforComponent},
+  {path:'viet',component:TotalVieComponent},
 ];
 
 @NgModule({

@@ -35,7 +35,7 @@ export class TotalInforComponent implements OnInit {
   }
   setData()
   {
-      console.log('total world: ', this.d);
+      //console.log('total world: ', this.d);
       this.totalWorld=this.d[0].total.world.cases
       this.totalDeath=this.d[0].total.world.death
       this.totalRecover=this.d[0].total.world.recovered

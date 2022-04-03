@@ -16,12 +16,7 @@ export class CountryCaseChartComponent implements OnInit{
   @Output() deaths = new EventEmitter<number>();
 
 ngOnInit(): void {
-      setTimeout(() => {
-        this.informationService.getCasesByCountry(this.selectedCountry).subscribe(cases => {
-          this.cases = cases;
-          this.setOptions();
-        });
-      }, 0);
+      
   }
   selectedCountry:string=''
   countryCasesChartOptions: any;
@@ -86,6 +81,6 @@ ngOnInit(): void {
     this.deaths.emit(this.cases[e.dataIndex].Deaths)
     this.recovered.emit(this.cases[e.dataIndex].Recovered)
     //console.log(this.cases[e.dataIndex])
-      console.log(e.dataIndex)
+    //  console.log(e.dataIndex)
   }
 }

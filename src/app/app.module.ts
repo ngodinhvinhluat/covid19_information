@@ -16,6 +16,9 @@ import { FormsModule } from '@angular/forms';
 import { CountPieLineChartComponent } from './count-pie-line-chart/count-pie-line-chart.component';
 import { WorldPieChartComponent } from './world-pie-chart/world-pie-chart.component';
 import { TotalInforComponent } from './total-infor/total-infor.component';
+import { TotalVieComponent } from './total-vie/total-vie.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { FlexmonsterPivotModule } from 'ng-flexmonster';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,12 +27,15 @@ import { TotalInforComponent } from './total-infor/total-infor.component';
     CountryCaseChartComponent,
     CountPieLineChartComponent,
     WorldPieChartComponent,
-    TotalInforComponent
+    TotalInforComponent,
+    TotalVieComponent
   ],
   imports: [
     NgxEchartsModule.forRoot({
       echarts
     }),
+    [FlexmonsterPivotModule],
+    HighchartsChartModule,
     HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
