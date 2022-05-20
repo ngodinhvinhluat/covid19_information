@@ -19,6 +19,7 @@ import { TotalInforComponent } from './total-infor/total-infor.component';
 import { TotalVieComponent } from './total-vie/total-vie.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { FlexmonsterPivotModule } from 'ng-flexmonster';
+import { BarcharForVieComponent } from './barchar-for-vie/barchar-for-vie.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { FlexmonsterPivotModule } from 'ng-flexmonster';
     CountPieLineChartComponent,
     WorldPieChartComponent,
     TotalInforComponent,
-    TotalVieComponent
+    TotalVieComponent,
+    BarcharForVieComponent
   ],
   imports: [
     NgxEchartsModule.forRoot({

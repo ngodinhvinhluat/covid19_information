@@ -14,23 +14,28 @@ export class TotalVieComponent implements OnInit {
   ngOnInit(): void {
     console.log(Highcharts)
     let a:any
-    this.chartOptions.chart.map.objects.default.geometries[1].properties.name='Quảng Ninh'
-    this.chartOptions.chart.map.objects.default.geometries[3].properties.name='Tiền Giang'
-    this.chartOptions.chart.map.objects.default.geometries[4].properties.name='Bà Rịa - Vũng Tàu'
+    this.setFontName()
     console.log(a)
   }
-
+setFontName()
+{
+  this.chartOptions.chart.map.objects.default.geometries[1].properties.name='Quảng Ninh'
+  this.chartOptions.chart.map.objects.default.geometries[3].properties.name='Tiền Giang'
+  this.chartOptions.chart.map.objects.default.geometries[4].properties.name='Bà Rịa - Vũng Tàu'
+  this.chartOptions.chart.map.objects.default.geometries[5].properties.name='Bình Thuận'
+  this.chartOptions.chart.map.objects.default.geometries[54].properties.name='Cao Bằng'
+}
 
 chartOptions: any= {
   chart: {
     map: worldMap
   },
   title: {
-    text: "Highmaps basic demo"
+    text: "Highmaps for VietNam"
   },
   subtitle: {
     text:
-      'Source map: World, Miller projection, medium resolution</a>'
+      'Covid 19 in VietNam</a>'
   },
   mapNavigation: {
     enabled: true,
@@ -47,10 +52,10 @@ chartOptions: any= {
   series: [
     {
       type: "map",
-      name: "Random data",
+      name: "Số ca nhiễm tại",
       states: {
         hover: {
-          color: "#ffff"
+          color: "red"
         }
       },
       dataLabels: {

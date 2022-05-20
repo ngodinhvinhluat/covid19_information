@@ -16,15 +16,17 @@ export class CountryCaseChartComponent implements OnInit{
   @Output() deaths = new EventEmitter<number>();
 
 ngOnInit(): void {
-      
+     
   }
   selectedCountry:string=''
   countryCasesChartOptions: any;
-  
+  time:any
   cases: CountryStatus[] = [];
+  dates:string[]=[]
   countries$ = this.informationService.getCountries$.pipe(tap(countries => {
     this.selectedCountry = countries[77].Slug;
     this.setOptions();
+    return countries.sort()
   }));
   constructor(private informationService: InformationService) {
   }
@@ -34,10 +36,20 @@ ngOnInit(): void {
       this.setOptions();
     });
   }
+  onChangeTime(even: any) {
+    console.log(this.time)
+
+    var month=(Number)(this.time.split('-')[1])
+    var year=(Number)(this.time.split('-')[0])
+    this.informationService.getCasesByCountry(this.selectedCountry).subscribe(cases => {
+     this.cases = cases;
+     this.setTimeOptions(month-1,year);
+   });
+ }
   setOptions() {
     this.countryCasesChartOptions = {
       title: {
-        text: 'COVID-19 STATUS CHART',
+        text: '',
       },
       legend: {
         data: ['Confirmed', 'Recovered', 'Deaths']
@@ -45,10 +57,11 @@ ngOnInit(): void {
       tooltip: {
       },
       xAxis: {
-        splitNumber:15,
+        splitNumber:50,
         //max:this.cases.length/15,
         //min:this.cases.length/150,
-        data: this.cases.map(c => new Date(c.Date).toLocaleDateString()),
+       
+        data:this.cases.map(c => new Date(c.Date).toLocaleDateString()),
       },
       yAxis: {
         type: 'value'
@@ -68,6 +81,56 @@ ngOnInit(): void {
         name: 'Deaths',
         type: 'line',
         data: this.cases.map(c => c.Deaths),
+      },
+      ]
+    };
+  }
+  setTimeOptions(month:Number,year:Number) {
+    var date=this.cases.filter(x=>{
+     return new Date(x.Date).getMonth()==month && new Date(x.Date).getFullYear()==year
+   }).map(c => new Date(c.Date).toLocaleDateString())
+    this.countryCasesChartOptions = {
+      title: {
+        text: '',
+      },
+      legend: {
+        data: ['Confirmed', 'Recovered', 'Deaths']
+      },
+      tooltip: {
+      },
+      xAxis: {
+        splitNumber:50,
+        //max:this.cases.length/15,
+        //min:this.cases.length/150,
+        data:this.cases.filter(x=>{
+         return new Date(x.Date).getMonth()==month&& new Date(x.Date).getFullYear()==year
+       }).map(c => new Date(c.Date).toLocaleDateString()),
+        
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+      {
+        name: 'Confirmed',
+        type: 'line',
+        data: this.cases.filter(x=>{
+          return  new Date(x.Date).getMonth()==month&& new Date(x.Date).getFullYear()==year
+       }).map(c => c.Confirmed),
+      },
+      {
+        name: 'Recovered',
+        type: 'line',
+        data: this.cases.filter(x=>{
+          return  new Date(x.Date).getMonth()==month&& new Date(x.Date).getFullYear()==year
+       }).map(c => c.Recovered),
+      },
+      {
+        name: 'Deaths',
+        type: 'line',
+        data: this.cases.filter(x=>{
+          return  new Date(x.Date).getMonth()==month&& new Date(x.Date).getFullYear()==year
+       }).map(c => c.Deaths),
       },
       ]
     };

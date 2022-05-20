@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'infor-wo',component:CountPieLineChartComponent},
   {path:'pie-world',component:WorldPieChartComponent},
   {path:'total-infor',component:TotalInforComponent},
-  {path:'viet',component:TotalVieComponent},
+  {path:'app-total-vie',component:TotalVieComponent},
 ];
 
 @NgModule({

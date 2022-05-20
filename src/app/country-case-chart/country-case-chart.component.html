@@ -7,6 +7,7 @@
           <select class="form-control" name="" id="" [(ngModel)]="selectedCountry" (change)="onChangeCountry()"  id="selectOption" >
             <option *ngFor="let c of countries$ | async" [value]="c.Slug">{{c.Country}}</option>
           </select>
+          <input type="month"  id="month" name="month" [(ngModel)]="time" (change)="onChangeTime(onChangeTime)" >
         </div>
       </div>
       <div class="col-md-12">
