@@ -18,8 +18,11 @@ import { WorldPieChartComponent } from './world-pie-chart/world-pie-chart.compon
 import { TotalInforComponent } from './total-infor/total-infor.component';
 import { TotalVieComponent } from './total-vie/total-vie.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+<<<<<<< HEAD
 import { FlexmonsterPivotModule } from 'ng-flexmonster';
 import { BarcharForVieComponent } from './barchar-for-vie/barchar-for-vie.component';
+=======
+>>>>>>> 3dce3129723ab5ca3347289be5cd43de197af542
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,6 @@ import { BarcharForVieComponent } from './barchar-for-vie/barchar-for-vie.compon
     NgxEchartsModule.forRoot({
       echarts
     }),
-    [FlexmonsterPivotModule],
     HighchartsChartModule,
     HttpClientModule,
     BrowserModule,
@@ -49,7 +51,7 @@ import { BarcharForVieComponent } from './barchar-for-vie/barchar-for-vie.compon
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
