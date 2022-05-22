@@ -9,7 +9,7 @@
     box-shadow: 0px 10px 6px -8px rgba(0,0,0,0.75);
 }
 .board {
-    column-count: 3;
+    column-count: 2;
     column-gap: 1rem;
 }
 .wrapped h2 {

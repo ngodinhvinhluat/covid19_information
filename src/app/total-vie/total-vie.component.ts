@@ -124,7 +124,10 @@ export class TotalVieComponent implements OnInit {
       },
     ],
   }
-
+  totalCases: number = 0
+  totalDeath: number = 0
+  totalRecover: number = 0
+  totalTreating: number = 0
   ngOnInit(): void {
     this.getData()
   }
@@ -132,6 +135,12 @@ export class TotalVieComponent implements OnInit {
   getData = async () => {
     this.informationService.getJSON().subscribe((data) => {
       this.chartOptions = Object(setData(data))
+      this.totalDeath=data.today.internal.death
+      this.totalTreating=data.today.internal.treating
+      this.totalRecover=data.today.internal.recovered
+      this.totalCases=data.today.internal.cases
+
+      console.log(data)
     })
   }
 }
